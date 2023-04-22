@@ -1,0 +1,9 @@
+#container{
+  display: flex;
+}
+#left{
+  flex: 30%;
+}
+#right{
+  flex: 70%;
+}
