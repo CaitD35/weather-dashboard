@@ -8,7 +8,7 @@ function searchWeather(event){
  event.preventDefault()
  singleDayDiv.innerHTML=""
  let city=inputElement.value
- let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+ let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
  fetch(url).then(response=>response.json()).then(data=>{
   console.log(data)
@@ -31,7 +31,7 @@ singleDayDiv.append(cityPara,tempPara,windPara,humPara)
 }
 
 function getForecastData(cityName){
- let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`
+ let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`
 
  fetch(url).then(response=>response.json()).then(data=>{
   console.log(data)
