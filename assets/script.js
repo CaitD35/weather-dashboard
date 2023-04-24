@@ -31,10 +31,30 @@ singleDayDiv.append(cityPara,tempPara,windPara,humPara)
 }
 
 function getForecastData(cityName){
+  cityName.preventDefault()
+forecastDiv.innerHTML=""
+  let futureForecast=inputElement.value
  let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`
 
  fetch(url).then(response=>response.json()).then(data=>{
   console.log(data)
+
+  let FutureCityPara=document.createElement("p")
+  FutureCityPara.innerHTML=data.city.name
+
+  let FutureTempPara=document.createElement("p")
+  FutureTempPara.innerHTML=`Temperature - ${data.list.main.temp}`
+
+  let FutureWindPara=document.createElement("p")
+  FutureWindPara.innerHTML=`Wind Speed - ${data.list.wind.speed}`
+
+  let FutureHumPara=document.createElement("p")
+  FutureHumPara.innerHTML=`Humidity - ${data.list.main.humidity}`
+
+forecastDiv.append(FutureCityPara,FutureTempPara,FutureWindPara,FutureHumPara)
+
+  getForecastData(futureForecast)
+  
  })
 
 }
