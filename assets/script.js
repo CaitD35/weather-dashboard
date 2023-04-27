@@ -14,6 +14,7 @@ function searchWeather(event){
 
  fetch(url).then(response=>response.json()).then(data=>{
   console.log(data)
+
   let cityPara=document.createElement("p")
   cityPara.innerHTML=data.name
 
@@ -37,7 +38,7 @@ singleDayDiv.append(cityPara,tempPara,windPara,humPara)
 function fiveDay(cityName){
 forecastDiv.innerHTML=""
   let lat = data[0].lat;
-  let lon = data[0].lon
+  let lon = data[0].lon;
   getCurrentWeather(lat, lon);
 let futureForecast=inputElement.value
 let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`
