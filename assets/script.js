@@ -4,6 +4,8 @@ let singleDayDiv=document.getElementById("singleDayData")
 let forecastDiv=document.getElementById("forecastData")
 let apiKey="195083ce216d426ad9736a07bcdf4041"
 
+// search for single day forecast for selected city//
+
 function searchWeather(event){
  event.preventDefault()
  singleDayDiv.innerHTML=""
@@ -30,15 +32,15 @@ singleDayDiv.append(cityPara,tempPara,windPara,humPara)
  })
 }
 
-// var startDt = dayjs().add(1, "day").startOf("day").unix();
-// var endDt = dayjs().add(6, "day").startOf("day").unix();
+// search for 5 day forecast for selected city//
 
-
-function getForecastData(cityName){
-  // cityName.preventDefault()
+function fiveDay(cityName){
 forecastDiv.innerHTML=""
- let futureForecast=inputElement.value
- let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`
+  let lat = data[0].lat;
+  let lon = data[0].lon
+  getCurrentWeather(lat, lon);
+let futureForecast=inputElement.value
+let url=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`
 
  fetch(url).then(response=>response.json()).then(data=>{
   console.log(data)
